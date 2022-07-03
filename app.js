@@ -6,6 +6,13 @@ const users = require("./routes/api/users");
 const tweets = require("./routes/api/tweets");
 const User = require('./models/User');
 const bodyParser = require('body-parser');
+const passport = require('passport');
+
+
+app.use(passport.initialize());
+
+require('./config/passport')(passport);
+
 
 mongoose
     .connect(db, { useNewUrlParser: true })
